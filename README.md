@@ -5,7 +5,7 @@ A company-mode script for auto-parenthesis
 
 0. Install company 和 yasnippet
 
-2. Copy company-yasnippet-autoparens.el to any path which emacs can load (eg: In windows, C:\Users\%YOU-USERNAME%\AppData\Roaming\.emacs.d\)
+2. Copy company-yasnippet-autoparens.el to any path which emacs can load (eg: In windows, C:\Users\\%YOU-USERNAME%\AppData\Roaming\\.emacs.d\)
 
 3. Add following code to your configuration
 ```
