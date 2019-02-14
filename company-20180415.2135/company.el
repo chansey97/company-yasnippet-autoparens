@@ -4,6 +4,7 @@
 
 ;; Author: Nikolaj Schumacher
 ;; Maintainer: Dmitry Gutov <dgutov@yandex.ru>
+;; Modifier: Siyuan Chen <chansey97@gmail.com>
 ;; URL: http://company-mode.github.io/
 ;; Version: 0.9.6
 ;; Keywords: abbrev, convenience, matching
@@ -982,20 +983,27 @@ matches IDLE-BEGIN-AFTER-RE, return it wrapped in a cons."
                               (car backends))))
              (apply backend command args))))))))
 
+
 (defun company--multi-backend-adapter-candidates (backends prefix separate)
-  (let ((pairs (cl-loop for backend in backends
-                        when (equal (company--prefix-str
-                                     (let ((company-backend backend))
-                                       (company-call-backend 'prefix)))
-                                    prefix)
-                        collect (cons (funcall backend 'candidates prefix)
-                                      (company--multi-candidates-mapper
-                                       backend
-                                       separate
-                                       ;; Small perf optimization: don't tag the
-                                       ;; candidates received from the first
-                                       ;; backend in the group.
-                                       (not (eq backend (car backends))))))))
+  (let ((pairs (reduce
+                (lambda (acc backend)
+                  (let ((c (cons (funcall backend 'candidates prefix acc)
+                                 (company--multi-candidates-mapper
+                                  backend
+                                  separate
+                                  ;; Small perf optimization: don't tag the
+                                  ;; candidates received from the first
+                                  ;; backend in the group.
+                                  (not (eq backend (car backends)))))))
+                    (append acc (list c))))
+                (cl-remove-if-not
+                 (lambda (backend)
+                   (equal (company--prefix-str
+                           (let ((company-backend backend))
+                             (company-call-backend 'prefix)))
+                          prefix))
+                 backends)
+                :initial-value nil)))
     (company--merge-async pairs (lambda (values) (apply #'append values)))))
 
 (defun company--multi-candidates-mapper (backend separate tag)

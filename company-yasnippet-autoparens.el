@@ -1,6 +1,6 @@
 ;;; company-yasnippet-autoparens.el --- company-mode completion backend for Yasnippet (Auto-parenthesis Extension)
 
-;; Author: chansey97 <chansey97@gmail.com>
+;; Author: Siyuan Chen <chansey97@gmail.com>
 
 (require 'company)
 (require 'cl-lib)
@@ -9,23 +9,41 @@
 (declare-function yas--template-content "yasnippet")
 (declare-function yas--template-expand-env "yasnippet")
 
-(defun company-yasnippet-autoparens--candidates (prefix)
-  (let* ((key prefix)
-         (paren-key (concat "(" key ")"))
-         (template (yas--make-template :table       nil
-                                       :key         key 
-                                       :content     (concat "(" key "$1)")
-                                       :name        paren-key
-                                       :uuid        paren-key))
-         (res))
+(defun company-yasnippet-autoparens--candidates (prefix rest-args)
 
-    (push (propertize  key
-                       'yas-annotation paren-key
-                       'yas-template template
-                       'yas-prefix-offset 0)
-          res)
-    (push key
-          res)))
+  (let ((res))
+    (let ((pre-backends (car rest-args)))
+      (cl-loop for backend in pre-backends
+               do (let ((candidates (car backend) ))
+                    (cl-loop for candidate in candidates
+                             do (when (stringp candidate)
+                                  (let* ((key candidate)
+                                         (paren-key (concat "(" key ")"))
+                                         (template (yas--make-template :table       nil
+                                                                       :key         key 
+                                                                       :content     (concat "(" key "$1)")
+                                                                       :name        paren-key
+                                                                       :uuid        paren-key)))
+                                    (push (propertize  key
+                                                       'yas-annotation paren-key
+                                                       'yas-template template
+                                                       'yas-prefix-offset 0)
+                                          res)))))))
+
+    (let* ((key prefix)
+           (paren-key (concat "(" key ")"))
+           (template (yas--make-template :table       nil
+                                         :key         key 
+                                         :content     (concat "(" key "$1)")
+                                         :name        paren-key
+                                         :uuid        paren-key)))
+      (push (propertize  key
+                         'yas-annotation paren-key
+                         'yas-template template
+                         'yas-prefix-offset 0)
+            res)
+      (push key
+            res))))
 
 ;;;###autoload
 (defun company-yasnippet-autoparens (command &optional arg &rest ignore)
@@ -63,7 +81,7 @@ shadow backends that come after it.  Recommended usages:
          (concat
           (unless company-tooltip-align-annotations " -> ")
           annotation))))
-    (candidates (company-yasnippet-autoparens--candidates arg))
+    (candidates (company-yasnippet-autoparens--candidates arg ignore))
     (no-cache t)
     (post-completion
      (let ((template (get-text-property 0 'yas-template arg))
@@ -77,3 +95,5 @@ shadow backends that come after it.  Recommended usages:
 
 (provide 'company-yasnippet-autoparens)
 ;;; company-yasnippet-autoparens.el ends here
+
+
