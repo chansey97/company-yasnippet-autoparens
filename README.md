@@ -7,7 +7,7 @@ A company-mode script for auto-parenthesis
 
 1. If you have installed company, uninstall it.
 
-The easiest way to do this is remove your company folder (eg: In windows, C:\Users\\%YOU-USERNAME%\AppData\Roaming\\.emacs.d\company-XXXXXXXX.XXXX) and make sure your Emacs configuration doesn't automatically install company.
+   The easiest way to do this is remove your company folder (eg: In windows, C:\Users\\%YOU-USERNAME%\AppData\Roaming\\.emacs.d\company-XXXXXXXX.XXXX) and make sure your Emacs configuration doesn't automatically install company.
 
 2. Copy company-20180415.2135 folder to any path which emacs can load (eg: In windows, C:\Users\\%YOU-USERNAME%\AppData\Roaming\\.emacs.d\)
 
