@@ -3,12 +3,21 @@ A company-mode script for auto-parenthesis
 
 ### Usage
 
-0. Install company 和 yasnippet
+0. Install yasnippet
 
-2. Copy company-yasnippet-autoparens.el to any path which emacs can load (eg: In windows, C:\Users\\%YOU-USERNAME%\AppData\Roaming\\.emacs.d\)
+1. If you have installed company, uninstall it.
 
-3. Add following code to your configuration
+The easiest way to do this is remove your company folder (eg: In windows, C:\Users\\%YOU-USERNAME%\AppData\Roaming\\.emacs.d\company-XXXXXXXX.XXXX) and make sure your Emacs configuration doesn't automatically install company.
+
+2. Copy company-20180415.2135 folder to any path which emacs can load (eg: In windows, C:\Users\\%YOU-USERNAME%\AppData\Roaming\\.emacs.d\)
+
+3. Copy company-yasnippet-autoparens.el to any path which emacs can load (eg: In windows, C:\Users\\%YOU-USERNAME%\AppData\Roaming\\.emacs.d\)
+
+4. Add following code to your configuration
 ```
+(require 'company)
+(global-company-mode 1)
+
  (defvar company-mode/enable-yas t
    "Enable yasnippet for all backends.")
 
