@@ -1,6 +1,36 @@
 # company-yasnippet-autoparens
 A company-mode script for auto-parenthesis
 
+### What problems does company-yasnippet-autoparens solve?
+
+Each Lisp dialect has its own syntax form. Take Scheme as an example, we have special forms (such as ```define```, ```if```, ```let```, ```lambda```),  primitive operators (such as ```con```, ```car```, ```cdr```),  as well as the application of custom procedure.
+
+The special form and the primitive operation are fixed, they can be made into snippet files and added to completion list. However, the custom procedure is not fixed, and it is impossible to make them into snippet files.
+
+Therefore, when you enter ```cons```, ```cons - > (cons E1 e2)`` will appear in the completion list. But when you type ```foo```, there is no ```foo - > (foo e)``` to fill out the list.
+
+company-yasnippet-autoparens is the solution to this problem, it can make ```foo - > (foo e)``` appear in the completion list.
+
+### Demo
+
+1. For any continuous text input, a parentheses version of that text will be added to the completion list.
+
+<img src="./demo-1.gif">
+
+2. For the original completion items (eg: dabbrev), a corresponding parentheses version will now be added to the completion list.
+
+<img src="./demo-2.gif">
+
+3. An example of using let and procedure call.
+
+<img src="./demo-3.gif">
+
+4. An example of using cond and procedure call.
+
+<img src="./demo-4.gif">
+
+Note: company-yasnippet-autoparens supports any s-exp languages (not just Elisp).
+
 ### Usage
 
 0. Install yasnippet
