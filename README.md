@@ -5,7 +5,7 @@ A company-mode script for auto-parenthesis
 
 Each Lisp dialect has its own syntax form. Take Scheme as an example, we have special forms (such as ```define```, ```if```, ```let```, ```lambda```),  primitive operators (such as ```con```, ```car```, ```cdr```),  as well as the application of custom procedure.
 
-The special form and the primitive operation are fixed, they can be made into snippet files and added to completion list. However, the custom procedure is not fixed, and it is impossible to make them into snippet files.
+The special form and the primitive operators are fixed, they can be made into snippet files and added to completion list. However, the custom procedure is not fixed, and it is impossible to make them into snippet files.
 
 Therefore, when you enter ```cons```, ```cons - > (cons E1 e2)``` will appear in the completion list. But when you type ```foo```, there is no ```foo - > (foo e)``` to fill out the list.
 
