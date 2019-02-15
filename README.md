@@ -17,25 +17,30 @@ A company-mode script for auto-parenthesis
 ```
 (require 'company)
 (global-company-mode 1)
+(setq company-idle-delay 0.1)
+(setq company-minimum-prefix-length 1)
+(setq company-dabbrev-char-regexp "\\sw\\|_\\|-\\|!\\|\\?\\|*\\|+")
 
- (defvar company-mode/enable-yas t
-   "Enable yasnippet for all backends.")
+(push '(company-capf :with company-dabbrev) company-backends)
 
- ;; Add yasnippet support for all company backends
- (defun company-mode/backend-with-yas (backend)
-   (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
-       backend
-     (append (if (consp backend) backend (list backend))
-             '(:with company-yasnippet))))
+(defvar company-mode/enable-yas t
+"Enable yasnippet for all backends.")
 
- (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+;; Add yasnippet support for all company backends
+(defun company-mode/backend-with-yas (backend)
+(if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+    backend
+  (append (if (consp backend) backend (list backend))
+          '(:with company-yasnippet))))
 
- ;; Add company-yasnippet-autoparens
- (defun company-mode/backend-with-yas-ap (backend)
-   (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet-autoparens backend)))
-       backend
-     (append (if (consp backend) backend (list backend))
-             '(:with company-yasnippet-autoparens))))
+(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
- (setq company-backends (mapcar #'company-mode/backend-with-yas-ap company-backends))
+;; Add company-yasnippet-autoparens
+(defun company-mode/backend-with-yas-ap (backend)
+(if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet-autoparens backend)))
+    backend
+  (append (if (consp backend) backend (list backend))
+          '(:with company-yasnippet-autoparens))))
+
+(setq company-backends (mapcar #'company-mode/backend-with-yas-ap company-backends))
 ```
