@@ -9,7 +9,7 @@ The special form and the primitive operators are fixed, they can be made into sn
 
 Therefore, when you enter ```cons```, a ```cons - > (cons E1 e2)``` will appear in the completion list. But when you type ```foo```, there is no ```foo - > (foo e)``` to fill out the list.
 
-company-yasnippet-autoparens is the solution to this problem, it can make ```foo - > (foo e)``` appear in the completion list.
+company-yasnippet-autoparens solve this problem, it can make ```foo - > (foo e)``` appear in the completion list.
 
 ### Demo
 
