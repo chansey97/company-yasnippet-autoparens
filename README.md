@@ -7,7 +7,7 @@ Each Lisp dialect has its own syntax form. Take Scheme as an example, we have sp
 
 The special form and the primitive operators are fixed, they can be made into snippet files and added to completion list. However, the custom procedure is not fixed, and it is impossible to make them into snippet files.
 
-Therefore, when you enter ```cons```, ```cons - > (cons E1 e2)``` will appear in the completion list. But when you type ```foo```, there is no ```foo - > (foo e)``` to fill out the list.
+Therefore, when you enter ```cons```, a ```cons - > (cons E1 e2)``` will appear in the completion list. But when you type ```foo```, there is no ```foo - > (foo e)``` to fill out the list.
 
 company-yasnippet-autoparens is the solution to this problem, it can make ```foo - > (foo e)``` appear in the completion list.
 
