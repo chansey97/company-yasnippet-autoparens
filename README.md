@@ -17,7 +17,7 @@ company-yasnippet-autoparens solve this problem, it can make ```foo - > (foo e)`
 
 <img src="./demo-1.gif">
 
-2. For the original completion items (eg: dabbrev), a corresponding parentheses version will now be added to the completion list.
+2. For the original completion items (eg: dabbrev), a corresponding parentheses version will also be added to the completion list.
 
 <img src="./demo-2.gif">
 
