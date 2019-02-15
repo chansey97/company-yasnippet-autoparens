@@ -76,3 +76,7 @@ Note: company-yasnippet-autoparens supports any s-exp languages (not just Elisp)
 
 (setq company-backends (mapcar #'company-mode/backend-with-yas-ap company-backends))
 ```
+
+### TODO
+
+Adding a Hook mechanism allows users to return more elaborate function signatures based on the information of the current completion list (e.g. by calling elisp-get-fnsym-args-string or language service to get these function signatures information)
