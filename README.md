@@ -19,10 +19,12 @@ A company-mode script for auto-parenthesis
 (global-company-mode 1)
 (setq company-idle-delay 0.1)
 (setq company-minimum-prefix-length 1)
+
+;; Add company-dabbrev
+(push '(company-capf :with company-dabbrev) company-backends)
 (setq company-dabbrev-char-regexp "\\sw\\|_\\|-\\|!\\|\\?\\|*\\|+")
 
-(push '(company-capf :with company-dabbrev) company-backends)
-
+;; Add company-yasnippet
 (defvar company-mode/enable-yas t
 "Enable yasnippet for all backends.")
 
