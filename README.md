@@ -1,7 +1,7 @@
 # company-yasnippet-autoparens
 A company-mode script for auto-parenthesis
 
-### What problems does company-yasnippet-autoparens solve?
+### What problem does company-yasnippet-autoparens solve?
 
 Each Lisp dialect has its own syntax form. Take Scheme as an example, we have special forms (such as ```define```, ```if```, ```let```, ```lambda```),  primitive operators (such as ```con```, ```car```, ```cdr```),  as well as the application of custom procedure.
 
