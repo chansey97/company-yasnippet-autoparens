@@ -3,13 +3,13 @@ A company-mode script for auto-parenthesis
 
 ### What problem does company-yasnippet-autoparens solve?
 
-Each Lisp dialect has its own syntax form. Take Scheme as an example, we have special forms (such as ```define```, ```if```, ```let```, ```lambda```),  primitive operators (such as ```con```, ```car```, ```cdr```),  as well as the application of custom procedure.
+Each Lisp dialect has its own syntax forms. Take Scheme as an example, we have special forms (such as ```define```, ```if```, ```let```, ```lambda```),  primitive operators (such as ```con```, ```car```, ```cdr```),  as well as the custom procedure call.
 
-The special form and the primitive operators are fixed, they can be made into snippet files and added to completion list. However, the custom procedure is not fixed, and it is impossible to make them into snippet files.
+The special forms and the primitive operators are fixed, they can be made into snippet files and added to completion list. However, the custom procedure is not fixed, and it is impossible to make them into snippet files.
 
-Therefore, when you enter ```cons```, a ```cons - > (cons E1 e2)``` will appear in the completion list. But when you type ```foo```, there is no ```foo - > (foo e)``` to fill out the list.
+Therefore, when you enter ```cons```, a ```cons - > (cons E1 e2)``` will appear in the completion list. But when you type ```foo```, there will be no ```foo - > (foo e)``` in the list.
 
-company-yasnippet-autoparens solve this problem, it can make ```foo - > (foo e)``` appear in the completion list.
+company-yasnippet-autoparens solves this problem, it can make ```foo - > (foo e)``` appear in the completion list.
 
 ### Demo
 
@@ -79,4 +79,4 @@ Note: company-yasnippet-autoparens supports any s-exp languages (not just Elisp)
 
 ### TODO
 
-Adding a Hook mechanism allows users to return more elaborate function signatures based on the information of the current completion list (e.g. by calling elisp-get-fnsym-args-string or language service to get these function signatures information)
+Adding a hook mechanism, which allows users to return the function signatures based on the information of the current completion list (e.g. calling elisp-get-fnsym-args-string or language service to get these function signatures information)
