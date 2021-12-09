@@ -72,9 +72,7 @@ shadow backends that come after it.  Recommended usages:
   (interactive (list 'interactive))
   (cl-case command
     (interactive (company-begin-backend 'company-yasnippet-autoparens))
-    (prefix
-     (and (bound-and-true-p yas-minor-mode)
-          (company-grab-symbol)))
+    (prefix (or arg ""))
     (annotation
      (let ((annotation (get-text-property 0 'yas-annotation arg)))
        (when annotation

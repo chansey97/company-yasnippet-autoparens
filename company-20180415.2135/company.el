@@ -1000,7 +1000,7 @@ matches IDLE-BEGIN-AFTER-RE, return it wrapped in a cons."
                  (lambda (backend)
                    (equal (company--prefix-str
                            (let ((company-backend backend))
-                             (company-call-backend 'prefix)))
+                             (company-call-backend 'prefix prefix)))
                           prefix))
                  backends)
                 :initial-value nil)))
