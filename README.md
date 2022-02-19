@@ -3,7 +3,7 @@ A company-mode script for auto-parenthesis
 
 ### What problem does company-yasnippet-autoparens solve?
 
-Most of completion systems for Emacs do not support automatic parentheses. For example, by default, typing `add-ho`, completion list will display `add-hook` instead of `(add-hook)`. This is sometimes annoying. The company-yasnippet-autoparens solves the problem, it can make `add-hook - > (add-hook)` appear in the completion list.
+Most of completion systems for Emacs do not support automatic parentheses. For example, by default, typing `add-ho`, completion list will display `add-hook` instead of `(add-hook)`. This is sometimes annoying. The company-yasnippet-autoparens solves this problem, it can make `add-hook - > (add-hook)` appear in the completion list.
 
 
 
@@ -17,15 +17,15 @@ Most of completion systems for Emacs do not support automatic parentheses. For e
 
 <img src="./demo-2.gif">
 
-3. Some other examples
+3. Some other examples.
 
 <img src="./demo-3.gif">
 
 <img src="./demo-4.gif">
 
-Note that company-yasnippet-autoparens supports any s-exp languages, not just Elisp. It even can support non s-exp language, if using `company-yasnippet-autoparens-2.el`.
+Note that company-yasnippet-autoparens supports any s-exp languages, not just Elisp. It even can support non s-exp languages, if using `company-yasnippet-autoparens-2.el`.
 
-4. Non s-exp language
+4. Non s-exp languages.
 
 <img src="./demo-5.gif">
 
