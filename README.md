@@ -13,11 +13,11 @@ Most of completion systems for Emacs do not support automatic parentheses. For e
 
 <img src="./demo-1.gif">
 
-2. Any original completion items (eg: dabbrev), a corresponding parentheses version will be added to the completion list.
+2. It can combine various backends, e.g. dabbrev.
 
 <img src="./demo-2.gif">
 
-3. Some other examples.
+3. Some other examples that combine with yasnippet.
 
 <img src="./demo-3.gif">
 
