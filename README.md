@@ -48,7 +48,7 @@ Note that company-yasnippet-autoparens supports any s-exp languages, not just El
 (global-company-mode 1)
 (setq company-idle-delay 0.1)
 (setq company-minimum-prefix-length 1)
-(setq company-dabbrev-char-regexp "\\sw\\|_\\|-\\|!\\|\\?\\|*\\|+")
+(setq company-dabbrev-char-regexp "\\sw\\|_\\|-\\|!\\|\\?\\|*\\|+\\|=\\|>\\|<")
 (setq company-backends '((company-capf
                           company-dabbrev
                           company-yasnippet-autoparens
