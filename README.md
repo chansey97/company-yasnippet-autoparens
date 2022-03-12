@@ -36,7 +36,7 @@ Note that company-yasnippet-autoparens supports any s-exp languages, not just El
 
 ### Usage
 
-1. If you have installed `company`, uninstall it.
+1. If you have installed `company` and `yasnippet`, uninstall them.
 2. Clone this repository and unzip it to your emacs configuration path.
 3. Add the following code to your configuration file.
 ```
