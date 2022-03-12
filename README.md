@@ -36,10 +36,9 @@ Note that company-yasnippet-autoparens supports any s-exp languages, not just El
 
 ### Usage
 
-1. Install `yasnippet` if you have not installed.
-2. If you have installed `company`, uninstall it.
-3. Clone this repository and unzip it to your emacs configuration path.
-4. Add the following code to your configuration file.
+1. If you have installed `company`, uninstall it.
+2. Clone this repository and unzip it to your emacs configuration path.
+3. Add the following code to your configuration file.
 ```
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -54,5 +53,4 @@ Note that company-yasnippet-autoparens supports any s-exp languages, not just El
                           company-yasnippet-autoparens
                           company-yasnippet)))
 ```
-
 
